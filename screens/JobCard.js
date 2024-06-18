@@ -1,19 +1,19 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 
-const JobCard = ({ logo, jobTitle, companyName, amount, location,  }) => {
+const JobCard = ({ logo, jobTitle, companyName, amount, location, customStyles, csTextStyles }) => {
   return (
-    <View style={styles.card}>
-      <View style={styles.header}>
+    <View style={[styles.card, customStyles]}>
+      <View style={[styles.header,csTextStyles]}>
         <Image source={logo} style={styles.logo} />
         <View>
-          <Text style={styles.jobTitle}>{jobTitle}</Text>
-          <Text style={styles.companyName}>{companyName}</Text>
+          <Text style={[styles.jobTitle, csTextStyles]}>{jobTitle}</Text>
+          <Text style={[styles.companyName, csTextStyles]}>{companyName}</Text>
         </View>
       </View>
       <View style={styles.footer}>
-        <Text style={styles.amount}>{amount}</Text>
-        <Text style={styles.location}>{location}</Text>
+        <Text style={[styles.amount,csTextStyles]}>{amount}</Text>
+        <Text style={[styles.location,csTextStyles]}>{location}</Text>
       </View>
     </View>
   );
@@ -41,17 +41,20 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   logo: {
-    width: 40,
-    height: 40,
+    width: 45,
+    height: 45,
     marginRight: 10,
+    borderRadius: 22.5,
+    backgroundColor: 'white',
   },
   jobTitle: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: 'white',
   },
   companyName: {
     fontSize: 14,
-    color: '#666',
+    color: 'white',
   },
   footer: {
     flexDirection: 'row',
@@ -66,10 +69,11 @@ const styles = StyleSheet.create({
   amount: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: 'white',
   },
   location: {
     fontSize: 14,
-    color: '#666',
+    color: 'white',
   },
 });
 
